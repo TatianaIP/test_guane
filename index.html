@@ -11,10 +11,14 @@
     <!-- Bootstrap CSS de la Nube CDN-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos.css">
+    <!-- Add Bootstrap and Bootstrap-Vue CSS to the <head> section -->  
+
+
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/> 
     
      <link rel="shortcut icon" href="shoppingcart_77968.ico" type="image/x-icon">
  
-
+      
     
      <title>Tets guane</title>
  </head>
@@ -76,7 +80,7 @@
   <!-- Slider  -->
   <div class="row ">
     <div class="col ">
-        <div id="carouselId" class="carousel slide modificar "   data-ride="carousel">
+        <div id="carouselId" class="carousel slide modificar  "   data-ride="carousel">
 
           <ol class="carousel-indicators">
             <li data-target="#carouselId" data-slide-to="0" class="active"></li>
@@ -114,70 +118,89 @@
       
       <!-- formulario -->
       <form >
-       <div class="row d-flex justify-content-between align-items-center">
-        <div class="col-sm 6 col-md 6 col-lg 6">
+       <div class='row d-flex justify-content-between align-items-center'>
+        <div class='col-sm 6 col-md 6 col-lg 6'>
 
-          <label class="form1 "><strong> <i class="fas fa-map-marker"></i> pickup</strong></label> 
+          <label class="form1"><strong> <i class="fas fa-map-marker"></i> pickup</strong></label> 
           <hr/>
            
-          <input type="text" v-model="hauls.zipFrom"  placeholder="zip from">
-          <input type="text"  placeholder="city from">
+          <input type="text" v-model="nuevoZipf" @keyup.enter="agregarZipf" placeholder="zip from">
+          
+          <input type="text" v-model="nuevoCityf" @keyup.enter="agregarCityf" placeholder="city from">
           
         </div>
 
-        <div class="col-sm 6 col-md 6 col-lg 6">
-          <label class="form2 r"><strong><i class="fas fa-map-marker"></i> Delivery</strong></label> 
+        <div class='col-sm 6 col-md 6 col-lg 6'>
+          <label class="form2"><strong><i class="fas fa-map-marker"></i> Delivery</strong></label> 
           <hr/>
-          <input type="text"  placeholder="zip to">
-          <input type="text"  placeholder="city to">
+          <input type="text" v-model="nuevoZipt" @keyup.enter="agregarZipt"   placeholder="zip to">
+          <input type="text" v-model="nuevoCityt" @keyup.enter="agregarCityt" placeholder="city to">
         </div>
       </div>
       </form>
       </br>
       </br>
 
-      <form>
-        <label class="form3"><strong> Atributos</strong></label> 
+     
+      <div>
+        <form >
+          <b-row>
+            <b-col>
+              <input type="text" v-model="texto" :state="comprobar">
+              </input>
+              <small v-if="comprobar===true">minimo 3 caracteres</small>
+              <p>texto:{{texto}}</p>
+
+            </b-col>
+          </b-row>
+      </div>
+    </form>
+    
+        <label class='form3'><strong> Atributos</strong></label> 
           <hr/>
            <!-- Default checked -->
-          <div class=" row d-flex  justify-content-around flex-center align-items-center">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="checkboxEnLinea1" value="opcion_1"> Hazmat
+          <div class=' row d-flex  justify-content-around flex-center align-items-center'>
+            <label class='checkbox-inline'>
+              <input type='checkbox' id="checkboxEnLinea1" value="opcion_1 ">> Hazmat
             </label>
-            <label class="checkbox-inline">
+
+           
+
+            <label class='checkbox-inline'>
               <input type="checkbox" id="checkboxEnLinea2" value="opcion_2"> Bonded
             </label>
-            <label class="checkbox-inline">
+            <label class='checkbox-inline'>
               <input type="checkbox" id="checkboxEnLinea3" value="opcion_3"> Tarps
             </label>
-            <label class="checkbox-inline">
+            <label class='checkbox-inline'>
               <input type="checkbox" id="checkboxEnLinea1" value="opcion_1"> Airport Delivery Non TSA
             </label>
-            <label class="checkbox-inline">
+            <label class='checkbox-inline'>
               <input type="checkbox" id="checkboxEnLinea2" value="opcion_2"> Airport Delivery TSA
             </label>
-            <label class="checkbox-inline">
+            <label class='checkbox-inline'>
               <input type="checkbox" id="checkboxEnLinea3" value="opcion_3"> Oversize/Overweight Permits
             </label>
-            <label class="checkbox-inline">
+            <label class='checkbox-inline'>
               <input type="checkbox" id="checkboxEnLinea1" value="opcion_1"> Escorts
             </label>
-            <label class="checkbox-inline">
+            <label class='checkbox-inline'>
               <input type="checkbox" id="checkboxEnLinea2" value="opcion_2"> Team Drivers
             </label>
-            <label class="checkbox-inline">
+            <label class='checkbox-inline'>
               <input type="checkbox" id="checkboxEnLinea3" value="opcion_3"> Non Stackable
-            </label>
-            
+            </label>  
           </div>
       </form>
+     
+     
       </br>
       </br>
-      <table class="table">
+      <table class="table col-sm 4 col-md 6 col-lg 12">
         <thead >
           
           <tr class="theadbg">
-            <th> <button class="btn theadbg">Delete</button></th>
+            <th> <button class="btn theadbg" @click="deleteRow" > Delete</button></th>
             <th>
               <button class="btn theadbg"@click="agregarRow">Add New Row </button></th>  
             <th></th>
@@ -189,7 +212,7 @@
           <tr>
 
             <th>
-              <input type="checkbox" id="checkboxEnLinea2" value="opcion_2"> 
+              <input type="checkbox" id="checkboxEnLinea2" value="opcion_2" > 
             </th>
               <th>
                 hu-count
@@ -205,10 +228,11 @@
               </th>
               
             </tr>
-           <tr v-for="com of haul.commodity" >
-
+           <tr v-for="(com,ind) of haul.commodity"  >
+           
             <th>
-              <input type="checkbox" id="checkboxEnLinea2" value="opcion_2"> 
+              <input type="checkbox" v-model="select[ind]" > 
+              <h1 >{{select}}</h1> 
             </th>
               <th>
                 {{com.huCount}}
@@ -224,8 +248,14 @@
               </th>
               
             </tr>
+          
         </tbody>
       </table>
+       </br>
+       </br>
+       </br>
+       </br>
+      
 
       <!-- <input type="text"v-model="nuevaFruta" @keyup.enter="agregarFruta">
       <button  @click="agregarFruta">Agregar</button> -->
@@ -253,6 +283,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <!-- Los bootstrap de JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    
+    <script src="https://unpkg.com/vue/dist/vue.min.js"> </script>  
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"> </script>
   </body>
+  <!-- Add Vue and Bootstrap-Vue JS just before the closing </body> tag -->  
+
 </html>

@@ -8,9 +8,11 @@ const app = new Vue({
 
         titulo:'Hola Mundo con Vue',
         frutas:[
-            {nombre:'manzana',cantidad:20},
-            {nombre:'pera',cantidad:0},
-            {nombre:'platano',cantidad:30}
+            {value:null, text:'Seleccione una fruta'},
+            {value:'pera',text:'Verde'},
+            {value:'platano',text:'Amarillo'},
+            {value:'cereza',text:'rojo'}
+           
             
         ],
 
@@ -20,10 +22,10 @@ const app = new Vue({
                 zipFrom: 30083,
                 zipTo: 33178,
                 cityFrom: 'Stone Mountain, GA',
-                state_from: '',
-                state_to: '',
+                stateFrom: '',
+                stateTo: '',
                 cityTo: 'Miami, FL',
-                accessorials_from: [
+                accessorialsFrom: [
                     'Non-Hazmat'
                 ],
                 accessorials_to: [
@@ -57,6 +59,14 @@ const app = new Vue({
         ],
     
        nuevaFruta:'',
+       nuevoZipf:'',
+       nuevoCityf:'',
+       nuevoZipt:'',
+       nuevoCityt:'',
+       texto:'',
+       select:[],
+       i:0,
+       indice:0,
        total:0
     },
 
@@ -72,11 +82,75 @@ const app = new Vue({
 
         });
         this.nuevaFruta='';
+    },
+    deleteRow()
+     {
+     
+        for (this.i=0; this.i<this.select.length;i++)
+        {
+            if (this.select[this.i]===true)
+            {
+              this.hauls[0].commodity.splice(this.i);
+            }
+     }
+    
+    
+    },
+    agregarZipf(){
+        this.hauls[0].zipFrom.push(
+        
+
+        this.nuevoZipf
+
+        );
+        this.nuevoZipf='';
+    },
+    agregarCityf(){
+        this.hauls[0].cityFrom.push(
+        
+
+            this.nuevoCityf
+    
+
+        );
+        this.nuevoCityf='';
+    },
+    agregarZipt(){
+        this.hauls[0].zipTo.push(
+        
+
+            this.nuevoZipt
+    
+
+        );
+        this.nuevoZipt='';
+    },
+    agregarCityt(){
+        this.hauls[0].cityTo.push(
+        
+
+            this.nuevoCityt
+    
+
+        );
+        this.nuevoCityt='';
     }
+     
     },
     //funciones en javascript
     computed:{
       
+        comprobar(){
+
+
+         return this.texto.length > 2? true : false;
+
+
+
+        }
+        
+        
+         
     //   sumarFrutas(){
     //   this.total=0;
     //   for (fruta of this.frutas){
