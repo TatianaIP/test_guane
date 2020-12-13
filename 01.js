@@ -30,6 +30,8 @@ const app = new Vue({
                 ],
                 accessorials_to: [
                     'Non-Hazmat'
+
+
                 ],
                 accessorials: [
                     'Non-Hazmat'
@@ -75,13 +77,13 @@ const app = new Vue({
         
               for(this.i = 0 ; this.i <= this.select.length ; this.i++){
 
-                     if(this.select[this.i] === true){
-
-                        this.pos=this.i;
-                        this.select.splice(this.pos,1);
-                        this.hauls[0].commodity.splice(this.pos,1);
-
-                     }                     
+                     while(this.select[this.i] === true){
+                        
+                        this.select.splice(this.i,1);
+                        this.hauls[0].commodity.splice(this.i,1);
+                        this.verdadero++;
+                     }
+                                        
               }
               
               
