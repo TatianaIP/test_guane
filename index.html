@@ -146,11 +146,9 @@
         <form >
           <b-row>
             <b-col>
-              <input type="text" v-model="texto" :state="comprobar">
+              <input type="text" v-model="texto" :state="comprobar" >
               </input>
               <small v-if="comprobar===true">minimo 3 caracteres</small>
-              <p>texto:{{texto}}</p>
-
             </b-col>
           </b-row>
       </div>
@@ -231,8 +229,11 @@
            <tr v-for="(com,ind) of haul.commodity"  >
            
             <th>
-              <input type="checkbox" v-model="select[ind]" > 
-              <h1 >{{select}}</h1> 
+              <input type="checkbox" v-model="select[ind]">
+              <h1>{{select}}</h1>
+              <h2>{{pos}}</h2>
+              <h1>{{testeo}}</h1>
+
             </th>
               <th>
                 {{com.huCount}}
@@ -245,12 +246,12 @@
               </th>
               <th>
                 {{com.description}}
-              </th>
-              
+              </th>        
             </tr>
           
         </tbody>
       </table>
+      <h1>{{hauls[0].commodity}}</h1>
        </br>
        </br>
        </br>

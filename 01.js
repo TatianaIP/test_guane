@@ -35,24 +35,8 @@ const app = new Vue({
                     'Non-Hazmat'
                 ],
                 commodity: [
-                    {
-                        
-                        dimensions: '48.0 x 48.0 x 48.0 inch',
-                        huCount: '1 Pallet',
-                        weight: '37479.0 lb',
-                        description:'',
-                        contribution: '100%',
-                        oversize: false
-                    },
-                    {
-                        
-                        dimensions: '48.0 x 48.0 x 48.0 inch',
-                        huCount: '1 Pallet',
-                        weight: '37479.0 lb',
-                        description:'',
-                        contribution: '100%',
-                        oversize: false
-                    }
+                   
+                   
                 ],
                 
             }
@@ -65,8 +49,10 @@ const app = new Vue({
        nuevoCityt:'',
        texto:'',
        select:[],
+       pos:0,
        i:0,
        indice:0,
+       verdadero:0,
        total:0
     },
 
@@ -75,27 +61,33 @@ const app = new Vue({
         this.hauls[0].commodity.push({
         
 
-            dimensions: '48.0 x 48.0 x 48.0 inch', hu_count: '1 Pallet',
-            weight: '37479.0 lb',description:this.nuevaFruta,contribution: '100%',
+            dimensions: '48.0 x 48.0 x 48.0 inch', huCount: '1 Pallet',
+            weight: '37479.0 lb',description:this.texto,contribution: '100%',
             oversize: false
-    
+            
 
         });
         this.nuevaFruta='';
+        
     },
     deleteRow()
      {
-     
-        for (this.i=0; this.i<this.select.length;i++)
-        {
-            if (this.select[this.i]===true)
-            {
-              this.hauls[0].commodity.splice(this.i);
-            }
-     }
-    
-    
+        
+              for(this.i = 0 ; this.i <= this.select.length ; this.i++){
+
+                     if(this.select[this.i] === true){
+
+                        this.pos=this.i;
+                        this.select.splice(this.pos,1);
+                        this.hauls[0].commodity.splice(this.pos,1);
+
+                     }                     
+              }
+              
+              
     },
+        
+
     agregarZipf(){
         this.hauls[0].zipFrom.push(
         
@@ -136,7 +128,7 @@ const app = new Vue({
         this.nuevoCityt='';
     }
      
-    },
+},
     //funciones en javascript
     computed:{
       
