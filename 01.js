@@ -6,25 +6,17 @@ const app = new Vue({
     // los corchetes nos indican que estamos creando un objeto
     data: {
 
-        titulo:'Hola Mundo con Vue',
-        frutas:[
-            {value:null, text:'Seleccione una fruta'},
-            {value:'pera',text:'Verde'},
-            {value:'platano',text:'Amarillo'},
-            {value:'cereza',text:'rojo'}
-           
-            
-        ],
-
+        titulo:'Tets guane',
+    
         hauls: [
             {
                 guid: 'c983676527664b04b77318f0fb74db2b',
-                zipFrom: 30083,
-                zipTo: 33178,
-                cityFrom: 'Stone Mountain, GA',
+                zipFrom: [30083],
+                zipTo: [33178],
+                cityFrom: ['Stone Mountain, GA'],
                 stateFrom: '',
                 stateTo: '',
-                cityTo: 'Miami, FL',
+                cityTo: ['Miami, FL'],
                 accessorialsFrom: [
                     'Non-Hazmat'
                 ],
@@ -35,7 +27,7 @@ const app = new Vue({
                 ],
                 accessorials: [
                     'Non-Hazmat','Airport','Delivery Non TSA','Airport Delivery TSA','Oversize/Overweight Permits',
-                    'Escorts','Team Drivers', 
+                    'Escorts','Team Drivers', 'Non Stackable'
                 ],
                 commodity: [
                    
@@ -52,11 +44,10 @@ const app = new Vue({
             }
         ],
     
-       nuevaFruta:'',
-       nuevoZipf:'',
-       nuevoCityf:'',
-       nuevoZipt:'',
-       nuevoCityt:'',
+       nuevoZipf:30083,
+       nuevoCityf:'Stone Mountain, GA',
+       nuevoZipt:33178,
+       nuevoCityt:'Miami, FL',
        texto:'',
        texto2:'',
        select:[],
@@ -79,7 +70,7 @@ const app = new Vue({
             
 
         });
-        this.texto='';
+        this.nuevaFruta='';
         
     },
     deleteRow()
@@ -98,21 +89,29 @@ const app = new Vue({
               
               
     },
+    agregarCaja(){
+        this.hauls[0].accessorials.push(this.texto2);
+        this.texto2='';
         
+    },
    
-
     agregarZipf(){
-        this.hauls[0].zipFrom.push(this.nuevoZipf);
+        this.hauls[0].zipFrom.push(
+        
+
+        this.nuevoZipf
+
+        );
         this.nuevoZipf='';
     },
-
     agregarCityf(){
         this.hauls[0].cityFrom.push(
         
 
             this.nuevoCityf
     
-);
+
+        );
         this.nuevoCityf='';
     },
     agregarZipt(){
@@ -142,14 +141,13 @@ const app = new Vue({
       
         comprobar(){
 
-            this.verdero++;
             for(this.indice=0;this.indice<=this.hauls[0].elementosCaja.length; this.indice++){
     
                 for(this.posicion=0; this.posicion<=this.hauls[0].accessorials.length; this.posicion++){
                    
                    if (this.hauls[0].elementosCaja[this.indice]===this.hauls[0].accessorials[this.posicion]){
                      
-                       this.result[this.indice]=true;
+                        this.result[this.indice]=true;
     
                    }
                     
@@ -159,31 +157,7 @@ const app = new Vue({
             }
     
             }
-        // comprobar()
-        // {
-        //     for(this.i=0; this.i<=this.result.length;this.i++){
-
-        //         if(this.result[this.i]===true){
-                 
-        //          return true;
-
-        //         }
-
-        //     }
-
-
-        // }
-        
-         
-    //   sumarFrutas(){
-    //   this.total=0;
-    //   for (fruta of this.frutas){
-
-    //     this.total= this.total + fruta.cantidad;
-    //   }
-    //   return this.total;
-
-    //   } 
+     
 
 
     
