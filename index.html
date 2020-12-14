@@ -142,58 +142,54 @@
       </br>
 
      
+      <h5>Digite porfavor la descripcion del Producto en el siguiente recuadro:</h5>
+      <div>
+        <form >
+          <b-row>
+            <b-col>
+              <input type="text" v-model="texto2" :state="comprobar">
+              <button class="btn1 theadbg" @click="agregarCaja" >Agregar Accesorials</button>
+              </input>
+            </b-col>
+          </b-row>
+      </div>
+    </form> 
+  </br>
+</br>
+
+        
+    
+        <label class='form3'><strong> Accesorials</strong></label> 
+          <hr/>
+           <!-- Default checked -->
+          <div class=' row d-flex  justify-content-around flex-center align-items-center'>
+            <label class='checkbox-inline' v-for="(valorCaja,indice) of hauls[0].elementosCaja" >
+              <input type='checkbox' id="checkboxEnLinea1" value="opcion_1" v-model="result[indice]"> {{valorCaja}}
+     
+            </label>
+ 
+          </div> 
+      </form>
+      
+      
+      </br>
+      </br>
+
+      <h5>Digite la descripcion del Producto en el siguiente recuadro:</h5>
       <div>
         <form >
           <b-row>
             <b-col>
               <input type="text" v-model="texto" :state="comprobar" >
               </input>
-              <small v-if="comprobar===true">minimo 3 caracteres</small>
             </b-col>
           </b-row>
       </div>
-    </form>
-    
-        <label class='form3'><strong> Atributos</strong></label> 
-          <hr/>
-           <!-- Default checked -->
-          <div class=' row d-flex  justify-content-around flex-center align-items-center'>
-            <label class='checkbox-inline'>
-              <input type='checkbox' id="checkboxEnLinea1" value="opcion_1 ">> Hazmat
-            </label>
+    </form> 
+  </br>
+</br>
 
-           
-
-            <label class='checkbox-inline'>
-              <input type="checkbox" id="checkboxEnLinea2" value="opcion_2"> Bonded
-            </label>
-            <label class='checkbox-inline'>
-              <input type="checkbox" id="checkboxEnLinea3" value="opcion_3"> Tarps
-            </label>
-            <label class='checkbox-inline'>
-              <input type="checkbox" id="checkboxEnLinea1" value="opcion_1"> Airport Delivery Non TSA
-            </label>
-            <label class='checkbox-inline'>
-              <input type="checkbox" id="checkboxEnLinea2" value="opcion_2"> Airport Delivery TSA
-            </label>
-            <label class='checkbox-inline'>
-              <input type="checkbox" id="checkboxEnLinea3" value="opcion_3"> Oversize/Overweight Permits
-            </label>
-            <label class='checkbox-inline'>
-              <input type="checkbox" id="checkboxEnLinea1" value="opcion_1"> Escorts
-            </label>
-            <label class='checkbox-inline'>
-              <input type="checkbox" id="checkboxEnLinea2" value="opcion_2"> Team Drivers
-            </label>
-            <label class='checkbox-inline'>
-              <input type="checkbox" id="checkboxEnLinea3" value="opcion_3"> Non Stackable
-            </label>  
-          </div>
-      </form>
-     
-     
-      </br>
-      </br>
+  
       <table class="table col-sm 4 col-md 6 col-lg 12">
         <thead >
           

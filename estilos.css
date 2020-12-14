@@ -46,6 +46,24 @@
 
 
 }
+.btn1{
+  
+  background:#1111;
+  color:rgb(255, 255, 255);
+  padding:0.5rem;
+  font-weight:bold;
+  text-transform: uppercase;
+  font: 0.1rem;
+  text-decoration: none;
+  max-width: 16rem;
+  transition: 300ms all;
+  border:none;
+  cursor: pointer;
+  text-align: center;
+  background: rgb(35, 186, 206);
+
+
+}
 
 
 .contenedor div{

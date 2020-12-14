@@ -34,12 +34,20 @@ const app = new Vue({
 
                 ],
                 accessorials: [
-                    'Non-Hazmat'
+                    'Non-Hazmat','Airport','Delivery Non TSA','Airport Delivery TSA','Oversize/Overweight Permits',
+                    'Escorts','Team Drivers', 'Non Stackable'
                 ],
                 commodity: [
                    
                    
                 ],
+                elementosCaja:[
+                'Hazmat','Bonded','Tarps','Airport','Delivery Non TSA','Airport Delivery TSA','Oversize/Overweight Permits',
+                'Escorts','Team Drivers', 'Non Stackable'
+
+                ],
+
+                
                 
             }
         ],
@@ -50,8 +58,10 @@ const app = new Vue({
        nuevoZipt:'',
        nuevoCityt:'',
        texto:'',
+       texto2:'',
        select:[],
-       pos:0,
+       result:[],
+       posicion:0,
        i:0,
        indice:0,
        verdadero:0,
@@ -88,8 +98,12 @@ const app = new Vue({
               
               
     },
+    agregarCaja(){
+        this.hauls[0].accessorials.push(this.texto2);
+        this.texto2='';
         
-
+    },
+   
     agregarZipf(){
         this.hauls[0].zipFrom.push(
         
@@ -136,13 +150,36 @@ const app = new Vue({
       
         comprobar(){
 
+            for(this.indice=0;this.indice<=this.hauls[0].elementosCaja.length; this.indice++){
+    
+                for(this.posicion=0; this.posicion<=this.hauls[0].accessorials.length; this.posicion++){
+                   
+                   if (this.hauls[0].elementosCaja[this.indice]===this.hauls[0].accessorials[this.posicion]){
+                     
+                        this.result[this.indice]=true;
+    
+                   }
+                    
+                }
+    
+    
+            }
+    
+            }
+        // comprobar()
+        // {
+        //     for(this.i=0; this.i<=this.result.length;this.i++){
 
-         return this.texto.length > 2? true : false;
+        //         if(this.result[this.i]===true){
+                 
+        //          return true;
+
+        //         }
+
+        //     }
 
 
-
-        }
-        
+        // }
         
          
     //   sumarFrutas(){
