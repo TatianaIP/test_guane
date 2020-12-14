@@ -94,47 +94,22 @@ const app = new Vue({
         this.texto2='';
         
     },
-   
     agregarZipf(){
-        this.hauls[0].zipFrom.push(
-        
-
-        this.nuevoZipf
-
-        );
+        this.hauls[0].zipFrom.push(this.nuevoZipf);
         this.nuevoZipf='';
     },
     agregarCityf(){
-        this.hauls[0].cityFrom.push(
-        
-
-            this.nuevoCityf
-    
-
-        );
+        this.hauls[0].cityFrom.push(this.nuevoCityf);
         this.nuevoCityf='';
     },
     agregarZipt(){
-        this.hauls[0].zipTo.push(
-        
-
-            this.nuevoZipt
-    
-
-        );
+        this.hauls[0].zipTo.push(this.nuevoZipt );
         this.nuevoZipt='';
     },
     agregarCityt(){
-        this.hauls[0].cityTo.push(
-        
-
-            this.nuevoCityt
-    
-
-        );
+        this.hauls[0].cityTo.push( this.nuevoCityt );
         this.nuevoCityt='';
     }
-     
 },
     //funciones en javascript
     computed:{
@@ -148,20 +123,12 @@ const app = new Vue({
                    if (this.hauls[0].elementosCaja[this.indice]===this.hauls[0].accessorials[this.posicion]){
                      
                         this.result[this.indice]=true;
-    
-                   }
-                    
+                   }    
                 }
-    
-    
             }
     
             }
-     
-
-
-    
-    
+            
     }
 
 })
