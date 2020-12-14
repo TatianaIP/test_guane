@@ -142,12 +142,13 @@
       </br>
 
      
-      <h5>Digite porfavor la descripcion del Producto en el siguiente recuadro:</h5>
-      <div>
+      <p> Digite porfavor la descripcion del Producto en el siguiente recuadro:</p>
+      
         <form >
+          <div>
           <b-row>
             <b-col>
-              <input type="text" v-model="texto2" :state="comprobar">
+              <input type="text" v-model="texto2" :state="comprobar" >
               <button class="btn1 theadbg" @click="agregarCaja" >Agregar Accesorials</button>
               </input>
             </b-col>
@@ -164,7 +165,7 @@
            <!-- Default checked -->
           <div class=' row d-flex  justify-content-around flex-center align-items-center'>
             <label class='checkbox-inline' v-for="(valorCaja,indice) of hauls[0].elementosCaja" >
-              <input type='checkbox' id="checkboxEnLinea1" value="opcion_1" v-model="result[indice]"> {{valorCaja}}
+              <input type='checkbox' id="checkboxEnLinea1" value="opcion_1" v-model="result[indice]">{{valorCaja}}
      
             </label>
  
@@ -175,7 +176,7 @@
       </br>
       </br>
 
-      <h5>Digite la descripcion del Producto en el siguiente recuadro:</h5>
+      <p>Digite la descripcion del Producto en el siguiente recuadro:</p>
       <div>
         <form >
           <b-row>

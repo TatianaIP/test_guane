@@ -35,7 +35,7 @@ const app = new Vue({
                 ],
                 accessorials: [
                     'Non-Hazmat','Airport','Delivery Non TSA','Airport Delivery TSA','Oversize/Overweight Permits',
-                    'Escorts','Team Drivers', 'Non Stackable'
+                    'Escorts','Team Drivers', 
                 ],
                 commodity: [
                    
@@ -79,7 +79,7 @@ const app = new Vue({
             
 
         });
-        this.nuevaFruta='';
+        this.texto='';
         
     },
     deleteRow()
@@ -98,29 +98,21 @@ const app = new Vue({
               
               
     },
-    agregarCaja(){
-        this.hauls[0].accessorials.push(this.texto2);
-        this.texto2='';
         
-    },
    
+
     agregarZipf(){
-        this.hauls[0].zipFrom.push(
-        
-
-        this.nuevoZipf
-
-        );
+        this.hauls[0].zipFrom.push(this.nuevoZipf);
         this.nuevoZipf='';
     },
+
     agregarCityf(){
         this.hauls[0].cityFrom.push(
         
 
             this.nuevoCityf
     
-
-        );
+);
         this.nuevoCityf='';
     },
     agregarZipt(){
@@ -150,13 +142,14 @@ const app = new Vue({
       
         comprobar(){
 
+            this.verdero++;
             for(this.indice=0;this.indice<=this.hauls[0].elementosCaja.length; this.indice++){
     
                 for(this.posicion=0; this.posicion<=this.hauls[0].accessorials.length; this.posicion++){
                    
                    if (this.hauls[0].elementosCaja[this.indice]===this.hauls[0].accessorials[this.posicion]){
                      
-                        this.result[this.indice]=true;
+                       this.result[this.indice]=true;
     
                    }
                     
